@@ -1,0 +1,98 @@
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <div class="dropdown">
+      <button class="dropbtn"><%= t :language %></button>
+      <div class="dropdown-content">
+        <%= link_to 'English', root_path(locale: 'en') %>
+        <%= link_to 'Spanish', root_path(locale: 'es') %>
+      </div>
+    </div>
+    <%= form_for :contact, url: contacts_path, method: :post, html: {class: "contact100-form validate-form"} do |f|%>
+				<span class="contact100-form-title">
+					<%= t :heading %>
+				</span>
+      <label class="label-input100" for="contact_first_name"><%=t :name_label %> *</label>
+      <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+        <%= f.text_field :first_name, class:  "input100", placeholder: "#{t :f_name}"%>
+        <span class="focus-input100"></span>
+      </div>
+      <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
+        <%= f.text_field :last_name, class:  "input100", placeholder: "#{t :l_name}"%>
+        <span class="focus-input100"></span>
+      </div>
+
+      <label class="label-input100" for="contact_email"><%=t :mail_label %> *</label>
+      <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+        <%= f.text_field :email, class:  "input100", placeholder: "Eg. example@email.com"%>
+        <span class="focus-input100"></span>
+      </div>
+
+      <label class="label-input100" for="contact_phone_number"><%= t :phone_label %></label>
+      <div class="wrap-input100">
+        <%= f.text_field :phone_number, class:  "input100", placeholder: "Eg. +1 800 000000"%>
+        <span class="focus-input100"></span>
+      </div>
+
+      <label class="label-input100" for="contact_message"><%= t :message %> *</label>
+      <div class="wrap-input100 validate-input" data-validate = "Message is required">
+        <%= f.text_area :message, class:  "input100", placeholder:  "#{t :message_info}"%>
+        <span class="focus-input100"></span>
+      </div>
+
+      <div class="container-contact100-form-btn">
+        <%= f.submit "#{t :submit_btn}", class: "contact100-form-btn" %>
+      </div>
+    <% end %>
+
+    <div class="contact100-more flex-col-c-m" style="background-image: url('/assets/bg-01.jpg');">
+      <div class="flex-w size1 p-b-47">
+        <div class="txt1 p-r-25">
+          <span class="lnr lnr-map-marker"></span>
+        </div>
+
+        <div class="flex-col size2">
+						<span class="txt1 p-b-20">
+              <%= t :address %>
+						</span>
+
+          <span class="txt2">
+							Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+						</span>
+        </div>
+      </div>
+
+      <div class="dis-flex size1 p-b-47">
+        <div class="txt1 p-r-25">
+          <span class="lnr lnr-phone-handset"></span>
+        </div>
+
+        <div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							<%= t :contact %>
+						</span>
+
+          <span class="txt3">
+							+1 800 1236879
+						</span>
+        </div>
+      </div>
+
+      <div class="dis-flex size1 p-b-47">
+        <div class="txt1 p-r-25">
+          <span class="lnr lnr-envelope"></span>
+        </div>
+
+        <div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							<%= t :support %>
+						</span>
+
+          <span class="txt3">
+							contact@example.com
+						</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

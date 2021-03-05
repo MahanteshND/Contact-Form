@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact V17</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<% flash.each do |type, msg| %>
+  <% color = type =='success' ? '#00ad5f;' : '#f44336;'  %>
+  <div class="alert" style="background-color: <%= color %>">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong> <%= msg %></strong>
+  </div>
+<% end %>
+<%= yield %>
+</body>
+</html>
